@@ -16,7 +16,7 @@ It takes user input (like name, age, and topic), processes it through a language
 
 ## 🖼️ Image 1: API Request & Response (Postman)
 
-<img src="IMAGE_PATH_1" alt="API Request and Response Screenshot" />
+<img src="./Postman_Testing.png" alt="API Request and Response Screenshot" />
 
 **What this shows:**
 - A `POST` request sent to the webhook endpoint.
@@ -28,7 +28,7 @@ It takes user input (like name, age, and topic), processes it through a language
 
 ## 🖼️ Image 2: LLM Workflow Editor (n8n)
 
-<img src="IMAGE_PATH_2" alt="LLM Workflow Editor Screenshot" />
+<img src="./Workflow.png" alt="LLM Workflow Editor Screenshot" />
 
 **What this shows:**
 - A visual workflow created in **n8n**:
@@ -41,6 +41,10 @@ It takes user input (like name, age, and topic), processes it through a language
 
 ---
 
+## 🖼️ Image 3: User Interface
+<img src="./UI.png ">
+
+---
 ## 🛠️ Built With
 
 - **n8n** – Open-source workflow automation tool used to design and run the chatbot logic  
@@ -73,7 +77,6 @@ Ideal for:
 
 ## 📌 Notes
 
-- Replace `IMAGE_PATH_1` and `IMAGE_PATH_2` with your actual image file paths.
 - The workflow can be extended with memory, user authentication, or topic tracking.
 
 ---
