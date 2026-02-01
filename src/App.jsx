@@ -26,7 +26,21 @@ export default function App() {
       });
 
       const data = await res.json();
-      const cleanText = data.text || JSON.stringify(data, null, 2);
+      
+      // Simple extraction - get the deepest text value
+      const extractText = (obj) => {
+        if (typeof obj === 'string') return obj;
+        if (obj?.text && typeof obj.text === 'string') return obj.text;
+        if (typeof obj === 'object') {
+          for (const value of Object.values(obj)) {
+            const result = extractText(value);
+            if (result) return result;
+          }
+        }
+        return JSON.stringify(obj, null, 2);
+      };
+      
+      const cleanText = extractText(data);
 
       setMessages(prev => [
         ...prev,
@@ -65,7 +79,7 @@ export default function App() {
       </div>
 
       {/* Messages */}
-      <div className="flex-1 overflow-y-auto">
+      <div className="flex-1 overflow-y-auto overflow-x-hidden">
         {messages.map((m, i) => (
           <div key={i} className={m.sender === "user" ? "bg-gray-800" : "bg-black"}>
             <div className="max-w-3xl mx-auto p-6 flex gap-4">
@@ -74,7 +88,7 @@ export default function App() {
               }`}>
                 {m.sender === "user" ? "U" : "AI"}
               </div>
-              <div className="flex-1 whitespace-pre-wrap">{m.text}</div>
+              <div className="flex-1 whitespace-pre-wrap break-words">{m.text}</div>
             </div>
           </div>
         ))}
